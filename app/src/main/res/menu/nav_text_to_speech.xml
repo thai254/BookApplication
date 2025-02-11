@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_previous"
+        android:icon="@drawable/ic_pre_30"
+        android:title="Phát lại" />
+    <item
+        android:id="@+id/menu_pause"
+        android:icon="@drawable/ic_pause"
+        android:title="Tạm dừng" />
+    <item
+        android:id="@+id/menu_skip"
+        android:icon="@drawable/ic_skip_30"
+        android:title="Phát lại" />
+    <item
+        android:id="@+id/menu_replay"
+        android:icon="@drawable/ic_replay"
+        android:title="Phát lại" />
+    <item
+        android:id="@+id/menu_exit"
+        android:icon="@drawable/ic_exit"
+        android:title="Thoát" />
+</menu>

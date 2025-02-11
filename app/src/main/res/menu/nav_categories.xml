@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Menu Trạng thái -->
+    <group
+        android:checkableBehavior="none"
+        >
+        <item
+            android:id="@+id/menu_status"
+            android:title="Trạng thái">
+            <menu>
+                <item
+                    android:id="@+id/menu_previous"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title="Đã hoàn thành" />
+                <item
+                    android:id="@+id/menu_pause"
+                    android:icon="@drawable/ic_pause"
+                    android:title="Đang tiến hành" />
+            </menu>
+        </item>
+    </group>
+
+    <!-- Menu Thời gian đăng tải -->
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menu_time"
+            android:title="Thời gian đăng tải">
+            <menu>
+                <item
+                    android:id="@+id/menu_recent"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title="Ngày đăng gần đây" />
+                <item
+                    android:id="@+id/menu_old"
+                    android:icon="@drawable/ic_pause"
+                    android:title="Ngày đăng cũ" />
+            </menu>
+        </item>
+    </group>
+
+    <!-- Menu Quốc gia -->
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menu_country"
+            android:title="Quốc gia">
+            <menu>
+                <item
+                    android:id="@+id/menu_vietnam"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title="Việt Nam" />
+                <item
+                    android:id="@+id/menu_china"
+                    android:icon="@drawable/ic_pause"
+                    android:title="Trung Quốc" />
+                <item
+                    android:id="@+id/menu_japan"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title="Nhật Bản" />
+                <item
+                    android:id="@+id/menu_korea"
+                    android:icon="@drawable/ic_pause"
+                    android:title="Hàn Quốc" />
+                <item
+                    android:id="@+id/menu_usa"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title="Mỹ" />
+                <item
+                    android:id="@+id/menu_other"
+                    android:icon="@drawable/ic_pause"
+                    android:title="Khác" />
+            </menu>
+        </item>
+    </group>
+
+    <!-- Menu Số chương -->
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menu_chapters"
+            android:title="Số chương">
+            <menu>
+                <item
+                    android:id="@+id/menu_gt_0"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title=">0" />
+                <item
+                    android:id="@+id/menu_gt_30"
+                    android:icon="@drawable/ic_pause"
+                    android:title=">=30" />
+                <item
+                    android:id="@+id/menu_gt_100"
+                    android:icon="@drawable/ic_pre_30"
+                    android:title=">=100" />
+                <item
+                    android:id="@+id/menu_gt_500"
+                    android:icon="@drawable/ic_pause"
+                    android:title=">=500" />
+            </menu>
+        </item>
+    </group>
+
+</menu>

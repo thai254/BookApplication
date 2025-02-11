@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingDefaultResource">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp"/>
+            <stroke android:width="1dp" android:color="#FDFDFD"/>
+            <solid android:color="#8F97DA"/> <!-- Màu khi button được nhấn -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/lavender"/>
+            <corners android:radius="10dp"/>
+            <stroke android:width="1dp" android:color="#454E9C"/><!-- Màu khi button không được nhấn -->
+        </shape>
+    </item>
+</selector>
