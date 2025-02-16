@@ -13,9 +13,10 @@ public class BookDataClass {
     private String bookImage;
     private String userID;
     private String userAccount;
+    private String bookType;
 
     public BookDataClass(String userID, String userAccount, String bookId, String chapterId, String bookName,
-                         String chapterName, String authorId, String createdAt, String bookImage) {
+                         String chapterName, String authorId, String createdAt, String bookType, String bookImage) {
         this.userID = userID;
         this.userAccount = userAccount;
         this.bookId = bookId;
@@ -24,6 +25,7 @@ public class BookDataClass {
         this.chapterName = chapterName;
         this.authorId = authorId;
         this.createdAt = createdAt;
+        this.bookType = bookType;
         this.bookImage = bookImage;
     }
     public String getUserAccount() {
@@ -31,6 +33,10 @@ public class BookDataClass {
     }
     public String getUserID() {
         return userID;
+    }
+
+    public String getBookType() {
+        return bookType;
     }
     public String getBookId() {
         return bookId;

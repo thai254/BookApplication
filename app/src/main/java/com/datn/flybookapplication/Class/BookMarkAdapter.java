@@ -62,6 +62,8 @@ public class BookMarkAdapter extends RecyclerView.Adapter<BookMarkAdapter.BookVi
         holder.BM_created_at.setText(bookMarkData.getChapter_updated());
         holder.chapterNameBM.setText("Cập nhật " + bookMarkData.getChapter_name());
 
+        String book_type = bookMarkData.getBook_type();
+
         String base64Image = bookMarkData.getBook_image();
         if (base64Image != null && !base64Image.isEmpty()) {
             byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
@@ -79,6 +81,7 @@ public class BookMarkAdapter extends RecyclerView.Adapter<BookMarkAdapter.BookVi
         holder.itemView.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
 
+            bundle.putString("Type", book_type);
             bundle.putStringArrayList("bookmarkList", new ArrayList<>(chapterIdList));
             bundle.putInt("currentPosition", position);
 

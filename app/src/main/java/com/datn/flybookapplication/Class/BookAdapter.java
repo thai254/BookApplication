@@ -74,6 +74,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             bundle.putString("bookId", bookData.getBookId());
             bundle.putString("userId", bookData.getUserID());
             bundle.putString("Account", bookData.getUserAccount());
+            bundle.putString("Type", bookData.getBookType());
 
             BookDetailFragment fragment = new BookDetailFragment();
             fragment.setArguments(bundle);

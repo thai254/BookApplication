@@ -25,7 +25,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
+                android:button="@drawable/custom_checked"
                 android:layout_marginTop="40dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Hành động"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +36,8 @@
                 android:id="@+id/radioButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:button="@drawable/custom_checked"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="40dp"
                 android:text="Phiêu lưu"
@@ -42,29 +46,35 @@
 
             <RadioButton
                 android:id="@+id/radioButton6"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Anime"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton4" />
 
             <RadioButton
                 android:id="@+id/radioButton7"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Chuyển sinh"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton6" />
 
             <RadioButton
                 android:id="@+id/radioButton8"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginTop="20dp"
                 android:text="Trinh thám"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,9 +82,11 @@
 
             <RadioButton
                 android:id="@+id/radioButton9"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginTop="20dp"
                 android:text="Drama"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,8 +94,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton10"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:text="Hài hước"
@@ -93,7 +107,9 @@
             <RadioButton
                 android:id="@+id/radioButton11"
                 android:layout_width="wrap_content"
+                android:button="@drawable/custom_checked"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="20dp"
                 android:text="Kinh dị"
@@ -102,19 +118,23 @@
 
             <RadioButton
                 android:id="@+id/radioButton12"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:text="Lịch sử"
+                android:fontFamily="@font/quicksand_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton22" />
 
             <RadioButton
                 android:id="@+id/radioButton13"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginTop="20dp"
                 android:text="Phép thuật - siêu nhiên"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,8 +142,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton14"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="88dp"
                 android:text="Kỳ bí - bí ấn"
@@ -132,7 +154,9 @@
 
             <RadioButton
                 android:id="@+id/radioButton15"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
@@ -142,18 +166,22 @@
 
             <RadioButton
                 android:id="@+id/radioButton16"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Bi kịch"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton13" />
 
             <RadioButton
                 android:id="@+id/radioButton17"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="20dp"
                 android:text="Thể thao"
@@ -162,8 +190,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton18"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="20dp"
                 android:text="Truyện ngắn"
@@ -172,8 +202,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton19"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:text="Tâm lý"
@@ -182,8 +214,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton20"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="88dp"
                 android:text="Siêu thực - siêu nhiên"
@@ -192,8 +226,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton21"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:text="Lãng mạn"
@@ -202,8 +238,10 @@
 
             <RadioButton
                 android:id="@+id/radioButton22"
+                android:button="@drawable/custom_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:text="Cuộc sống thường ngày"

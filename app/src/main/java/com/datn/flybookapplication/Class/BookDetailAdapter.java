@@ -16,8 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.datn.flybookapplication.Fragment.Book2ContentFragment;
 import com.datn.flybookapplication.Fragment.BookContentFragment;
 import com.datn.flybookapplication.Fragment.BookDetailFragment;
+import com.datn.flybookapplication.Fragment.ComicFragment;
 import com.datn.flybookapplication.R;
 
 import java.util.ArrayList;
@@ -62,19 +64,35 @@ public class BookDetailAdapter extends RecyclerView.Adapter<BookDetailAdapter.Bo
 
             String book_id = chapterDataClass.getBookId();
             String user_id = chapterDataClass.getUserId();
+            String book_type = chapterDataClass.getBookType();
 
-            bundle.putStringArrayList("chapterList", new ArrayList<>(chapterIdList));
-            bundle.putInt("currentPosition", position);
-            bundle.putString("bookId", book_id);
-            bundle.putString("userId", user_id);
+            if(book_type.equals("0")) {
+                bundle.putStringArrayList("chapterList", new ArrayList<>(chapterIdList));
+                bundle.putInt("currentPosition", position);
+                bundle.putString("bookId", book_id);
+                bundle.putString("userId", user_id);
 
-            BookContentFragment fragment = new BookContentFragment();
-            fragment.setArguments(bundle);
+                BookContentFragment fragment = new BookContentFragment();
+                fragment.setArguments(bundle);
 
-            FragmentTransaction transaction = ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+                FragmentTransaction transaction = ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }else if(book_type.equals("1")) {
+                bundle.putStringArrayList("chapterList", new ArrayList<>(chapterIdList));
+                bundle.putInt("currentPosition", position);
+                bundle.putString("bookId", book_id);
+                bundle.putString("userId", user_id);
+
+                Book2ContentFragment fragment = new Book2ContentFragment();
+                fragment.setArguments(bundle);
+
+                FragmentTransaction transaction = ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
         });
     }
 

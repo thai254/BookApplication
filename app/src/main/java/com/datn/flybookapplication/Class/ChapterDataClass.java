@@ -6,13 +6,15 @@ public class ChapterDataClass {
     private String createdAt;
     private String bookId;
     private String userId;
+    private String bookType;
 
-    public ChapterDataClass(String chapterId, String chapterName, String createdAt, String bookId, String userId) {
+    public ChapterDataClass(String chapterId, String chapterName, String createdAt, String bookId, String bookType, String userId) {
         this.chapterId = chapterId;
         this.chapterName = chapterName;
         this.createdAt = createdAt;
         this.bookId = bookId;
         this.userId = userId;
+        this.bookType = bookType;
     }
 
     public String getUserId() {
@@ -24,6 +26,11 @@ public class ChapterDataClass {
     public void setChapterId(String chapterId) {
         this.chapterId = chapterId;
     }
+
+    public String getBookType() {
+        return bookType;
+    }
+
     public String getChapterName() {
         return chapterName;
     }

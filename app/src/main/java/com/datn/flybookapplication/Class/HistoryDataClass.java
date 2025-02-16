@@ -9,9 +9,10 @@ public class HistoryDataClass {
     private String createdAT;
     private String bookName;
     private String bookImage;
+    private String bookType;
 
     public HistoryDataClass(String historyID, String bookID, String userID, String chapterID,
-                            String chapterName, String createdAT, String bookName, String bookImage) {
+                            String chapterName, String createdAT, String bookName, String bookType, String bookImage) {
         this.historyID = historyID;
         this.bookID = bookID;
         this.userID = userID;
@@ -20,9 +21,13 @@ public class HistoryDataClass {
         this.createdAT = createdAT;
         this.bookName = bookName;
         this.bookImage = bookImage;
+        this.bookType = bookType;
     }
     public String getUserID() {
         return userID;
+    }
+    public String getBookType() {
+        return bookType;
     }
     public String getChapterName() {
         return chapterName;

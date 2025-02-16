@@ -34,6 +34,7 @@
                     android:id="@+id/txtUpdated"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="25dp"
                     android:text="Đăng tải lúc"
                     android:textColor="@color/black"

@@ -58,7 +58,7 @@ public class BookDetailFragment extends Fragment {
     EditText text_cmt;
     Button btnCmt;
     ImageButton btnBookmark;
-    String bookId, userID, userAcc;
+    String bookId, userID, userAcc, bookType;
     private SharedViewModel sharedViewModel;
     SwipeRefreshLayout SRLcmt;
 
@@ -95,6 +95,7 @@ public class BookDetailFragment extends Fragment {
             bookId = bundle.getString("bookId");
             userID = bundle.getString("userId");
             userAcc = bundle.getString("Account");
+            bookType = bundle.getString("Type");
 
             ArrayList<String> bookmarkList = bundle.getStringArrayList("bookmarkList");
             int currentPosition = bundle.getInt("currentPosition", 0);
@@ -157,7 +158,6 @@ public class BookDetailFragment extends Fragment {
                 }, 500);
             }
         });
-
 
         return view;
     }
@@ -230,7 +230,13 @@ public class BookDetailFragment extends Fragment {
 
                                 txtBookName.setText(b_NAME);
                                 txtBookAlias.setText("Tên khác: " + b_ALIAS);
-                                txtAuthor.setText("Tác giả: " + b_AUTHOR);
+
+                                if(!b_AUTHOR.equals("null")) {
+                                    txtAuthor.setText("Tác giả: " + b_AUTHOR);
+                                }else {
+                                    txtAuthor.setText("Tác giả: Đang cập nhật");
+                                }
+
                                 txtContentBook.setText(b_CONTENT);
 
                                 byte[] decodedString = Base64.decode(b_BOOK_IMAGE, Base64.DEFAULT);
@@ -258,7 +264,7 @@ public class BookDetailFragment extends Fragment {
 
                                     Log.v("data chapter: ", b_BOOK_ID + " - " + b_CHAPTER_ID + " - " + b_CHAPTER_NAME + " - " + b_CREATED_AT_TC);
 
-                                    ChapterDataClass chapterDataClass = new ChapterDataClass(b_CHAPTER_ID, b_CHAPTER_NAME, b_CREATED_AT_TC, b_BOOK_ID, userID);
+                                    ChapterDataClass chapterDataClass = new ChapterDataClass(b_CHAPTER_ID, b_CHAPTER_NAME, b_CREATED_AT_TC, b_BOOK_ID, bookType, userID);
                                     chapterDataList.add(chapterDataClass);
                                     chapterIdList.add(b_CHAPTER_ID);
                                 }
@@ -330,6 +336,7 @@ public class BookDetailFragment extends Fragment {
                                 }
                                 txtCategories.setText("Thể loại: " + cateNamesBuilder.toString());
                             } else {
+                                txtCategories.setText("Thể loại: Đang cập nhật");
                                 Log.v("ERROR BOOK", "No book details found");
                             }
                         } catch (JSONException e) {

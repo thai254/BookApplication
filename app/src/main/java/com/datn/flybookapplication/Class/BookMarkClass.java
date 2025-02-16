@@ -7,11 +7,12 @@ public class BookMarkClass {
     private String book_name;
     private String book_image;
     private String user_id;
+    private String book_type;
     private String chapter_name, chapter_updated;
 
     public BookMarkClass(String user_id, String bookmark_id, String book_id,
                          String book_name, String book_image, String created_at,
-                         String chapter_name, String chapter_updated) {
+                         String chapter_name, String book_type, String chapter_updated) {
         this.user_id = user_id;
         this.bookmark_id = bookmark_id;
         this.book_id = book_id;
@@ -19,6 +20,7 @@ public class BookMarkClass {
         this.book_image = book_image;
         this.created_at = created_at;
         this.chapter_name = chapter_name;
+        this.book_type = book_type;
         this.chapter_updated = chapter_updated;
     }
 
@@ -39,6 +41,10 @@ public class BookMarkClass {
     }
     public String getUser_id() {
         return user_id;
+    }
+
+    public String getBook_type() {
+        return book_type;
     }
     public String getChapter_name() {
         return chapter_name;

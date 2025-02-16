@@ -39,6 +39,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.datn.flybookapplication.Class.BannerDataClass;
+import com.datn.flybookapplication.Class.Book2DataClass;
 import com.datn.flybookapplication.Class.BookDataClass;
 import com.datn.flybookapplication.Class.SearchAdapter;
 import com.datn.flybookapplication.Class.SearchDataClass;
@@ -116,7 +117,16 @@ public class MenuActivty extends AppCompatActivity implements NavigationView.OnN
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            HomeFragment homeFragment = new HomeFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("user_id", userID);
+            bundle.putString("user_account", userAccount);
+            homeFragment.setArguments(bundle);
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, homeFragment, HomeFragment.class.getSimpleName())
+                    .commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
@@ -177,12 +187,19 @@ public class MenuActivty extends AppCompatActivity implements NavigationView.OnN
         int itemId = item.getItemId();
 
         if (itemId == R.id.nav_home) {
+
             HomeFragment homeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag(HomeFragment.class.getSimpleName());
             if (homeFragment != null && homeFragment.isVisible()) {
                 homeFragment.refreshData();
             } else {
                 // Nếu HomeFragment chưa được hiển thị, tạo mới và thay thế
                 homeFragment = new HomeFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("user_id", userID);
+                bundle.putString("user_account", userAccount);
+                homeFragment.setArguments(bundle);
+
                 transaction.replace(R.id.fragment_container, homeFragment, HomeFragment.class.getSimpleName());
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -273,11 +290,12 @@ public class MenuActivty extends AppCompatActivity implements NavigationView.OnN
                                     String  u_ChapterID = bookObject.getString("chapter_id");
                                     String  u_Chapter_name = bookObject.getString("chapter_name");
                                     String  u_book_name = bookObject.getString("book_name");
+                                    String  u_book_type = bookObject.getString("book_type");
                                     String  u_author = bookObject.getString("author_id");
                                     String  u_created_at = bookObject.getString("created_at");
                                     String  u_imgBase64 = bookObject.getString("book_image");
 
-                                    BookDataClass bookData = new BookDataClass(userID, userAccount, u_ID, u_ChapterID, u_book_name, u_Chapter_name, u_author, u_created_at, u_imgBase64);
+                                    BookDataClass bookData = new BookDataClass(userID, userAccount, u_ID, u_ChapterID, u_book_name, u_Chapter_name, u_author, u_created_at, u_book_type, u_imgBase64);
                                     bookDataList.add(bookData);
 
                                     if (!bookDataList.isEmpty()) {
@@ -288,13 +306,6 @@ public class MenuActivty extends AppCompatActivity implements NavigationView.OnN
 
                                         getBookRandom(randomBookID, bookDataList);
                                     }
-
-//                                    HomeFragment homeFragment = new HomeFragment();
-//                                    homeFragment.setBookDataList(bookDataList);
-//
-//                                    getSupportFragmentManager().beginTransaction()
-//                                            .replace(R.id.fragment_container, homeFragment)
-//                                            .commit();
 
                                 }
                             } else {
@@ -325,6 +336,8 @@ public class MenuActivty extends AppCompatActivity implements NavigationView.OnN
 
         requestQueue.add(stringRequest);
     }
+
+
 
     public void getBookRandom(String id_book, List<BookDataClass> bookDataList) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);

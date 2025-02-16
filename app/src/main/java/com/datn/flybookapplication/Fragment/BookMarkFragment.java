@@ -89,13 +89,14 @@ public class BookMarkFragment extends Fragment {
                                     String bm_Created = bookObject.getString("bookmark_created_at");
                                     String b_name = bookObject.getString("book_name");
                                     String b_imgBase64 = bookObject.getString("book_image");
+                                    String b_type = bookObject.getString("book_type");
                                     String b_chapter = bookObject.getString("chapter_name");
                                     String b_chapter_updated = bookObject.getString("chapter_created_at");
 
                                     String bm_Created_TC = changeTime(bm_Created);
                                     String bm_chapter_created_TC = changeTime(b_chapter_updated);
 
-                                    BookMarkClass bookmarkData = new BookMarkClass(user_id, bm_ID, b_ID, b_name, b_imgBase64, bm_Created_TC, b_chapter, bm_chapter_created_TC);
+                                    BookMarkClass bookmarkData = new BookMarkClass(user_id, bm_ID, b_ID, b_name, b_imgBase64, bm_Created_TC, b_chapter, b_type, bm_chapter_created_TC);
                                     bookMarkList.add(bookmarkData);
                                 }
                                 bookMarkAdapter.notifyDataSetChanged();

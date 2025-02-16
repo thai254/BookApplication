@@ -29,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.datn.flybookapplication.Fragment.Book2ContentFragment;
 import com.datn.flybookapplication.Fragment.BookContentFragment;
 import com.datn.flybookapplication.Fragment.BookDetailFragment;
 import com.datn.flybookapplication.Fragment.BookMarkFragment;
@@ -83,6 +84,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.BookView
 
             bundle.putString("bookId", historyData.getBookID());
             bundle.putString("userId", historyData.getUserID());
+            bundle.putString("Type", historyData.getBookType());
             bundle.putStringArrayList("bookmarkList", new ArrayList<>(chapterIdList));
             bundle.putInt("currentPosition", position);
 
@@ -107,6 +109,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.BookView
                 Bundle bundle = new Bundle();
                 bundle.putString("bookId", historyData.getBookID());
                 bundle.putString("userId", historyData.getUserID());
+                bundle.putString("Type", historyData.getBookType());
                 bundle.putInt("currentPosition", currentPosition);
                 bundle.putStringArrayList("chapterList", new ArrayList<>(chapterIdList1));
 
@@ -124,6 +127,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.BookView
                 Bundle bundle1 = new Bundle();
                 bundle1.putString("bookId", historyData.getBookID());
                 bundle1.putString("userId", historyData.getUserID());
+                bundle1.putString("Type", historyData.getBookType());
                 bundle1.putStringArrayList("bookmarkList", new ArrayList<>(chapterIdList));
                 bundle1.putInt("currentPosition", position);
 
@@ -135,32 +139,63 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.BookView
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                    ((AppCompatActivity) context).getSupportFragmentManager().popBackStack();
+                if(historyData.getBookType().equals("0")) {
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                        ((AppCompatActivity) context).getSupportFragmentManager().popBackStack();
 
-                    List<String> updatedChapterIdList = sharedViewModel.getChapterIdList().getValue();
+                        List<String> updatedChapterIdList = sharedViewModel.getChapterIdList().getValue();
 
-                    if (updatedChapterIdList != null && updatedChapterIdList.contains(chapterID)) {
-                        int currentPosition = updatedChapterIdList.indexOf(chapterID);
+                        if (updatedChapterIdList != null && updatedChapterIdList.contains(chapterID)) {
+                            int currentPosition = updatedChapterIdList.indexOf(chapterID);
 
-                        Bundle bundle = new Bundle();
-                        bundle.putString("bookId", historyData.getBookID());
-                        bundle.putString("userId", historyData.getUserID());
-                        bundle.putInt("currentPosition", currentPosition); // Vị trí hiện tại
-                        bundle.putStringArrayList("chapterList", new ArrayList<>(updatedChapterIdList)); // Danh sách chương
+                            Bundle bundle = new Bundle();
+                            bundle.putString("bookId", historyData.getBookID());
+                            bundle.putString("userId", historyData.getUserID());
+                            bundle.putString("Type", historyData.getBookType());
+                            bundle.putInt("currentPosition", currentPosition); // Vị trí hiện tại
+                            bundle.putStringArrayList("chapterList", new ArrayList<>(updatedChapterIdList)); // Danh sách chương
 
-                        BookContentFragment fragment = new BookContentFragment();
-                        fragment.setArguments(bundle);
+                            BookContentFragment fragment = new BookContentFragment();
+                            fragment.setArguments(bundle);
 
-                        ((AppCompatActivity) context).getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragment_container, fragment)
-                                .addToBackStack(null)
-                                .commit();
-                    } else {
-                        Log.e("HistoryAdapter", "Chapter ID không tồn tại trong danh sách!");
-                    }
-                }, 1000);
+                            ((AppCompatActivity) context).getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment_container, fragment)
+                                    .addToBackStack(null)
+                                    .commit();
+                        } else {
+                            Log.e("HistoryAdapter", "Chapter ID không tồn tại trong danh sách!");
+                        }
+                    }, 1000);
+                }else if(historyData.getBookType().equals("1")){
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                        ((AppCompatActivity) context).getSupportFragmentManager().popBackStack();
+
+                        List<String> updatedChapterIdList = sharedViewModel.getChapterIdList().getValue();
+
+                        if (updatedChapterIdList != null && updatedChapterIdList.contains(chapterID)) {
+                            int currentPosition = updatedChapterIdList.indexOf(chapterID);
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString("bookId", historyData.getBookID());
+                            bundle.putString("userId", historyData.getUserID());
+                            bundle.putString("Type", historyData.getBookType());
+                            bundle.putInt("currentPosition", currentPosition); // Vị trí hiện tại
+                            bundle.putStringArrayList("chapterList", new ArrayList<>(updatedChapterIdList)); // Danh sách chương
+
+                            Book2ContentFragment fragment = new Book2ContentFragment();
+                            fragment.setArguments(bundle);
+
+                            ((AppCompatActivity) context).getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.fragment_container, fragment)
+                                    .addToBackStack(null)
+                                    .commit();
+                        } else {
+                            Log.e("HistoryAdapter", "Chapter ID không tồn tại trong danh sách!");
+                        }
+                    }, 1000);
+                }
             }
     });
 

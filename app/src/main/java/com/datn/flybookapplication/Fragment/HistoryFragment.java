@@ -90,11 +90,12 @@ public class HistoryFragment extends Fragment {
                                     String b_imgBase64 = bookObject.getString("book_image");
                                     String b_chapter_id = bookObject.getString("chapter_id");
                                     String b_chapter = bookObject.getString("chapter_name");
+                                    String b_type = bookObject.getString("book_type");
 
                                     String bm_Created_TC = changeTime(bh_Created);
 
                                     HistoryDataClass historyDataClass = new HistoryDataClass(bh_ID, b_ID, user_id, b_chapter_id,
-                                            b_chapter, bm_Created_TC, b_name, b_imgBase64);
+                                            b_chapter, bm_Created_TC, b_name, b_type, b_imgBase64);
                                     historyList.add(historyDataClass);
                                 }
                                 historyAdapter.notifyDataSetChanged();
